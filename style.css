@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.cart_icon{
+height: 10%;
+width: 10%;
+}
+.buy:focus { outline-style: none; }
+nav{
+  position: fixed;
+  background: #222222;
+  padding: 10px 40px 10px 70px;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  width: 100vw;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo{
+  flex: 1;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+nav ul div.items{
+  padding: 0 25px;
+  display: inline-flex;
+}
+.cart_icon{
+  padding: 0 15px;
+  display: flex;
+  font-size: 30px;
+  cursor: pointer;
+}
+.cart_icon p{
+  padding: 5px 5px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #f2f2f2;
+}
+nav ul div.items a:hover{
+  color: cyan;
+}
+nav ul .search-icon{
+  height: 40px;
+  width: 60%;
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+nav ul .search-icon input{
+  height: 100%;
+  width: 90%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+}
+nav ul .search-icon .icon{
+  height: 100%;
+  width: 10%;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+nav ul .search-icon .icon:hover{
+  background: #e6e6e6;
+}
+nav ul .search-icon .icon span{
+  color: #222222;
+  font-size: 18px;
+}
+nav ul li.btn{
+  font-size: 29px;
+  flex: 1;
+  padding: 0 40px;
+  display: none;
+}
+nav ul li.btn span{
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid #151515;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav ul li.btn span.show:before{
+  content: '\f00d';
+}
+@media screen and (max-width: 1052px) {
+  nav{
+    padding: 10px 5px 10px 10px;
+  }
+  nav ul li.logo{
+    display: none;
+  }
+  nav ul div.items{
+    flex: 4;
+  }
+}
+@media screen and (max-width: 800px){
+  nav ul li.btn{
+    display: block;
+  }
+  nav{
+    z-index: 1;
+    padding: 9px 40px 9px 10px;
+  }
+  nav ul .search-icon{
+  width: 70%;
+}
+nav ul .search-icon input{
+  width: 90%;
+}
+nav ul .search-icon .icon{
+  width: 15%;
+}
+
+}
+
+
+@media screen and (min-width: 768px){
+    :root{
+        --h1-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+h1{
+    font-size: var(--h1-font-size);
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*-- LAYAOUT --*/
+.main {
+    padding: 2rem 0;
+}
+.bd-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    max-width: 800px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*-- COMPONENT --*/
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+
+.card__img{
+    position: static;
+    width: 230px;
+    height: 260px;
+    padding: 1rem 0;
+    transition: .5s;
+}
+.card__icon{
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+.card__icon:hover{
+    color: var(--accent-color);
+}
+.card__precis{
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: .5s;
+    margin-bottom: 2rem;
+
+}
+.card__preci{
+    display: block;
+    text-align: center;
+}
+.card__preci--before{
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+.card__preci--now{
+    font-size: 1rem;
+    font-weight: bold;
+}
+/*Move left*/
+.card:hover .card__img{
+width: 250px;
+height: 270px;
+}
+
+
+
+.buy{
+background-color: #0f6747;
+border: none;
+color: white;
+padding: 2px 8px;
+border-radius: 25px;
+height: 40px;
+width: 130px;
+cursor: pointer;
+}
+
+.head1
+{
+color: #A52A2A;
+}
+
+/*-- MEDIA QUERIES --*/
+@media screen and (min-width: 360px) and (max-width: 411px)
+{
+.bd-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    max-width: 300px;
+    margin-left: 1.4rem;
+    margin-top: -1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    align-items: center;
+    padding: 0.1rem 0.1rem;
+    border-radius: 1rem;
+}
+
+.card__img{
+    width: 160px;
+    height: 190px;
+    padding: 1rem 0rem;
+    transition: .5s;
+}
+
+.card__preci--before{
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    margin-bottom: .25rem;
+}
+.card__preci--now{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.card__preci--init{
+    font-size: 0.7rem;
+}
+
+.card:hover .card__img{
+width: 170px;
+height: 200px;
+}
+
+.buy{
+background-color: #0f6747;
+border: none;
+color: white;
+padding: 2px 8px;
+border-radius: 25px;
+height: 30px;
+width: 100px;
+font-size: 10px;
+}
+
+.head1{
+font-size: 22px;
+}
+
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 768px)
+{
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+}
+
+.card__img{
+    position: static;
+    width: 200px;
+    height: 270px;
+    padding: 3rem 0;
+    transition: .5s;
+}
+
+.card:hover .card__img{
+width: 225px;
+height: 250px;
+padding: 0rem 0;
+}
+
+.card__preci--before{
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: .25rem;
+}
+.card__preci--now{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+.bd-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    max-width: 600px;
+    margin-left: 1.4rem;
+    align-items: center;
+    gap: 1rem;
+}
+}
+@media screen and (min-width: 1024px) and (max-width: 1026px)
+{
+.bd-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    max-width: 800px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+    gap: 2rem;
+}
+}

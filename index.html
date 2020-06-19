@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar with Searchbox</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+          <li class="logo">Srinivasa Siddha Stores</li>
+<li class="search-icon">
+          <input type="text" id="search" placeholder="Search" onkeyup="search_fun()">
+          <label class="icon"  onclick="search_fun()">
+            <span class="fas fa-search"></span>
+          </label>
+        </li>
+<li class="cart_icon" onclick="next()"><i class='fas fa-shopping-cart' style="color: #fff;"></i><p id="n_number">0</p></li>
+</ul>
+</nav>
+<center>
+
+<section id="milk">
+
+    <br><br><br><br><br><br>
+<h1 class="head1">OUR PRODUCTS</h1>
+    <main class="main bd-grid" id="myMain">
+
+            <article class="card">
+                <div class="card__img">
+                    <img src="img/vathasura.png">
+                </div>
+                <div class="card__precis">
+                    <div>
+                        <span class="card__preci card__preci--init">SKM</span>
+                        <a><span class="card__preci card__preci--now">VATHASURA KUDINEER CHUR.</span></a>
+                        <span class="card__preci card__preci--before">Rs.320</span>
+                        <button class="buy" onclick="check('VATHASURA KUDINEER CHUR - SKM','320')">Add to Cart</button>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__img">
+                    <img src="img/zeal.png">
+                </div>
+                <div class="card__precis">
+                    <div>
+                        <span class="card__preci card__preci--init">VASU</span>
+                        <a><span class="card__preci card__preci--now">ZEAL TABLETS</span></a>
+                        <span class="card__preci card__preci--before">Rs.220</span>
+                        <button class="buy" onclick="check('ZEAL TABLETS - VASU','220')">Add to Cart</button>
+                    </div>
+
+                </div>
+            </article>
+
+    </main>
+</section>
+
+
+</center>
+  <script>
+document.getElementById("n_number").innerHTML=sessionStorage.getItem("cart_no");
+
+if(Number(sessionStorage.getItem("cart_no"))==0)
+{
+var inames = [];
+var iqtyp=["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"];
+var iprice = [];
+sessionStorage.setItem("names", JSON.stringify(inames));
+sessionStorage.setItem("qtyp", JSON.stringify(iqtyp));
+sessionStorage.setItem("price", JSON.stringify(iprice));
+}
+
+function search_fun()
+{
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myMain");
+    li = ul.getElementsByTagName("article");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+function next()
+{
+    location.href = "cart.html";
+}
+
+    function check(x,y)
+    {
+    var inames = JSON.parse(sessionStorage.getItem("names"));
+    for (i=0; i<inames.length; i++){
+    if(inames[i].localeCompare(x)==0)
+        {
+        alert("Item Already Added!");
+        return;
+        }
+     }
+     cart(x,y);
+    }
+
+    function cart(a,b)
+    {
+
+    {
+    //cart number
+    var cart_no_1=sessionStorage.getItem("cart_no");
+    cart_no_1= Number(cart_no_1) + 1;
+    sessionStorage.setItem("cart_no",cart_no_1);
+    document.getElementById("n_number").innerHTML=sessionStorage.getItem("cart_no");
+
+    //cart
+
+    var inames = JSON.parse(sessionStorage.getItem("names"));
+    var iprice = JSON.parse(sessionStorage.getItem("price"));
+
+    inames.push(a);
+    iprice.push(b);
+
+    sessionStorage.setItem("names", JSON.stringify(inames));
+    sessionStorage.setItem("price",JSON.stringify(iprice));
+    }
+    }
+  </script>
+</body>
+</html>
